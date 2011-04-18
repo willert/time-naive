@@ -1,0 +1,2 @@
+An intetionally naive representation of floating time of day values
+and durations based on calculations with them. Based on Time::Simple.
