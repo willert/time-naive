@@ -15,7 +15,7 @@ use base qw/Time::Naive::TimeOfDay/;
 
 sub _compare {
   my ($self, $x, $reverse) = @_;
-  $x = Time::Naive::Duration->new($x)
+  $x = $self->new($x)
     unless UNIVERSAL::isa($x, 'Time::Simple');
   my $c = $self->total_seconds <=> $x->total_seconds;
   return $reverse ? -$c : $c;
@@ -64,9 +64,13 @@ sub new {
           return undef;
         }
       }
-
-      # mktime(sec, min, hour, mday, mon, year, wday = 0, yday = 0, isdst = 0/-1)
-      $time = $hms[0] * 3600 + $hms[1] * 60 + $hms[2]
+      if ( $hms[0] =~ /^-/ ) {
+        # gotta pull the negation out from hours and apply it to the
+        # whole shebang
+        $time = - ( $hms[0] * -3600 + $hms[1] * 60 + $hms[2] );
+      } else {
+        $time = $hms[0] * 3600 + $hms[1] * 60 + $hms[2];
+      }
     } elsif ($FATALS) {
       croak "Could not make a time - please read the documentation";
     } else {
@@ -104,6 +108,8 @@ sub format {
   my $format = shift || '%H:%M:%S';
   # strftime(fmt, sec, min, hour, mday, mon, year, wday = -1, yday = -1, isdst = -1)
   # pp { format => $self, sec => $self->seconds, min =>  $self->minutes, h => $self->hours, };
+
+  $format =~ s/%H/ sprintf( '%02d', $self->hour ) /eg;
   my $return = eval{ strftime(
     $format,
     $self->seconds, $self->minutes, $self->hours,
@@ -119,26 +125,32 @@ sub _add {
   my $self = shift;
   my ( $n, $reverse) = @_;
   if (UNIVERSAL::isa($n, 'Time::Naive::Duration')) {
-    my $copy = $self->_copy;
-    $$copy += $$n;
-    return $copy;
+    return $self->_add_duration( $n, $reverse );
+  } elsif ( not looks_like_number( $n )) {
+    return $self->_add_duration( $self->new($n), $reverse );
   } else {
     $self->SUPER::_add( @_ );
   }
 }
 
-sub _multiply {
-    my ($self, $n, $reverse) = @_;
+sub _add_duration {
+  my ( $self, $n, $reverse ) = @_;
+  my $copy = $self->_copy;
+  $$copy += $reverse ? $$n * - 1 : $$n;
+  return $copy;
+}
 
-    if (UNIVERSAL::isa($n, 'Time::Simple')) {
+sub _multiply {
+  my ($self, $n, $reverse) = @_;
+
+  if (UNIVERSAL::isa($n, 'Time::Simple')) {
     Carp::cluck "Cannot multiply a time by a time, only a time by a number.";
   }
 
   # Convert time to seconds
   my $ss = $self->total_seconds;
   $ss *= $n;
-  my @hms = $ss->_mktime_seconds;
-  return $self->new( @hms );
+  return $self->new( $ss );
 }
 
 sub _divide {
