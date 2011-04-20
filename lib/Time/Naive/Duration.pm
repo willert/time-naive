@@ -13,14 +13,6 @@ use POSIX qw(strftime floor);
 
 use base qw/Time::Naive::TimeOfDay/;
 
-sub _compare {
-  my ($self, $x, $reverse) = @_;
-  $x = $self->new($x)
-    unless UNIVERSAL::isa($x, 'Time::Simple');
-  my $c = $self->total_seconds <=> $x->total_seconds;
-  return $reverse ? -$c : $c;
-}
-
 sub new {
   my ($that, @hms) = (@_);
   my $time;
@@ -138,6 +130,15 @@ sub _add_duration {
   my $copy = $self->_copy;
   $$copy += $reverse ? $$n * - 1 : $$n;
   return $copy;
+}
+
+
+sub _compare {
+  my ($self, $x, $reverse) = @_;
+  $x = $self->new($x)
+    unless UNIVERSAL::isa($x, 'Time::Simple');
+  my $c = $self->total_seconds <=> $x->total_seconds;
+  return $reverse ? -$c : $c;
 }
 
 sub _multiply {
