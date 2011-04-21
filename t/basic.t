@@ -3,8 +3,6 @@ use warnings;
 use ExtUtils::testlib;
 use Test::More;
 
-use Carp::Always;
-
 use lib '../lib'; # For when this script is run directly
 
 use_ok('Time::Naive::TimeOfDay' => "0.01") or BAIL_OUT;
