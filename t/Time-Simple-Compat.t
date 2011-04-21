@@ -4,7 +4,6 @@ use ExtUtils::testlib;
 use Test::More;
 
 use lib '../lib'; # For when this script is run directly
-use local::lib 'perl5';
 
 use_ok('Time::Naive::TimeOfDay' => "0.01") or BAIL_OUT;
 
