@@ -11,6 +11,13 @@ use Carp;
 use Scalar::Util qw/looks_like_number blessed/;
 use Time::Naive::Duration;
 
+sub _stringify {
+  my $self = shift;
+  my $str = $self->format;
+  $str =~ s/:00$// if length $str > 5;
+  return $str;
+}
+
 sub _subtract {
   my $self = shift;
   my ( $n, $reverse) = @_;
@@ -32,6 +39,14 @@ sub until {
   my $res = $x - $self;
   $res += 60 * 60 * 24 if $res < 0;
   return $res;
+}
+
+sub total_seconds($){
+  my $self = shift;
+  my ($sh, $sm, $ss) = $self =~ /^0?(\d+?).0?(\d+?)(?:.0?(\d+))?$/;
+  my $sec = ( $ss || 0 ) + ($sm * 60) + ($sh * 60 * 60);
+  # printf STDERR "%s is %d secs\n", $self, $sec;
+  return $sec;
 }
 
 1;

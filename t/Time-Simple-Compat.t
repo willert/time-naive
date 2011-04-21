@@ -4,8 +4,9 @@ use ExtUtils::testlib;
 use Test::More;
 
 use lib '../lib'; # For when this script is run directly
+# use local::lib 'perl5';
 
-use_ok('Time::Naive::TimeOfDay' => "0.01") or BAIL_OUT;
+use_ok('Time::Naive::TimeOfDay') or BAIL_OUT;
 
 my $ts = Time::Naive::TimeOfDay->new;
 isa_ok($ts, 'Time::Naive::TimeOfDay');
@@ -25,9 +26,19 @@ isa_ok($ts, 'Time::Naive::TimeOfDay');
 $ts++;
 isa_ok($ts, 'Time::Naive::TimeOfDay', 'obj after inc');
 isnt($$ts, 2298322799, 'Adding seconds') or BAIL_OUT;
-like($ts, qr'00:00:00', 'inc after inc') or BAIL_OUT;
+SKIP: {
+  skip 'Stringification returns shorthand now', 1;
+  like($ts, qr'00:00:00', 'inc after inc');
+}
+like($ts, qr'00:00', 'inc after inc');
+
 $printed = "$ts";
-is($printed, '00:00:00', 'stringified');
+SKIP: {
+  skip 'Stringification returns shorthand now', 1;
+  is($printed, '00:00:00', 'stringified');
+}
+is($printed, '00:00', 'stringified');
+
 
 $ts--;
 isa_ok($ts, 'Time::Naive::TimeOfDay', 'obj after dec');
@@ -68,7 +79,12 @@ is($ts->minute,0,'min from scratch');
 is($ts->second,0,'sec from scratch');
 
 $ts = Time::Naive::TimeOfDay->new('23:59:59');
-like($ts->next, qr'00:00:00', 'next');
+SKIP: {
+  skip 'Stringification returns shorthand now', 1;
+  like($ts->next, qr'00:00:00', 'next');
+}
+like($ts->next, qr'00:00', 'next');
+
 
 $ts = Time::Naive::TimeOfDay->new('00:00:20');
 is($ts+1,'00:00:21', '20 plus one');
@@ -123,7 +139,12 @@ my $ts1 = Time::Naive::TimeOfDay->new('01:00:00');
 my $ts2 = Time::Naive::TimeOfDay->new('01:00:00');
 my $ts3 = $ts1 + $ts2;
 isa_ok($ts3, 'Time::Naive::TimeOfDay', 'Addition creates new') or BAIL_OUT;
-is("$ts3", '02:00:00', 'Made two hours') or BAIL_OUT;
+SKIP: {
+  skip 'Stringification returns shorthand now', 1;
+  is("$ts3", '02:00:00', 'Made two hours') or BAIL_OUT;
+}
+is("$ts3", '02:00', 'Made two hours');
+
 
 {
   my $ts1 = Time::Naive::TimeOfDay->new('00:00:10');
@@ -234,8 +255,15 @@ is(
   }
   is( q{}.($max-$t), "-02:29:29", 'Durations are order sensitive' );
   is( q{}.($t-$max), "02:29:29", 'Durations are order sensitive' );
+ SKIP: {
+    skip 'Stringification returns shorthand now', 1;
+    is(
+      q{}.(($max-$t) + ($t-$max)), "00:00:00",
+      'Durations are order sensitive'
+    );
+  }
   is(
-    q{}.(($max-$t) + ($t-$max)), "00:00:00",
+    q{}.(($max-$t) + ($t-$max)), "00:00",
     'Durations are order sensitive'
   );
 }
