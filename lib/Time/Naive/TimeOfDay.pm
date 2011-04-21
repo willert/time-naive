@@ -4,7 +4,6 @@ use strict;
 use warnings;
 
 use 5.008003;
-our $VERSION = '0.01';
 
 use base qw/Time::Simple/;
 

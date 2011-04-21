@@ -4,7 +4,6 @@ use strict;
 use warnings;
 
 use 5.008003;
-our $VERSION = '0.0551';
 our $FATALS  = 1;
 
 use Carp;
