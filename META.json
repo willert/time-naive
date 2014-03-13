@@ -1,0 +1,64 @@
+{
+   "abstract" : "naive handling of floating daytimes",
+   "author" : [
+      "Sebastian Willert <s.willert@wecare.de>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Minilla/v0.11.0, CPAN::Meta::Converter version 2.132510",
+   "license" : [
+      "unknown"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Time-Naive",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples",
+         "author",
+         "builder"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "CPAN::Meta" : "0",
+            "CPAN::Meta::Prereqs" : "0",
+            "Module::Build" : "0.38"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion" : "0.10108",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Test::More" : "1.00",
+            "Time::Simple" : "0.06"
+         }
+      }
+   },
+   "release_status" : "unstable",
+   "resources" : {
+      "homepage" : "https://github.com/willert/time-naive",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/willert/time-naive.git",
+         "web" : "https://github.com/willert/time-naive"
+      }
+   },
+   "version" : "0.02",
+   "x_contributors" : [
+      "Sebastian Willert <willert@gmail.com>"
+   ]
+}
