@@ -5,6 +5,7 @@ use warnings;
 
 use 5.008003;
 our $FATALS  = 1;
+our $VERSION = '0.02';
 
 use Carp;
 use Scalar::Util qw/looks_like_number blessed/;
