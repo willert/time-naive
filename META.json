@@ -4,7 +4,7 @@
       "Sebastian Willert <s.willert@wecare.de>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.5.0, CPAN::Meta::Converter version 2.140640",
+   "generated_by" : "Minilla/v2.2.1, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "unknown"
    ],
@@ -58,6 +58,8 @@
    },
    "version" : "0.02",
    "x_contributors" : [
-      "Sebastian Willert <willert@gmail.com>"
-   ]
+      "Sebastian Willert <willert@gmail.com>",
+      "Sebastian Willert <willert@hermes>"
+   ],
+   "x_serialization_backend" : "JSON::PP version 2.27300"
 }
