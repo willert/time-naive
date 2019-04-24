@@ -1,0 +1,62 @@
+Allow-Packages-Only-Once: 0
+Allow-Suspicious-Names: 0
+Columns: package name, version, path
+Description: Package names for my private CPAN
+Disallow-Alpha-Versions: 0
+File: 02packages.details.txt
+Intended-For: My private CPAN
+Last-Updated: Wed, 05 Apr 2017 17:51:58 GMT
+Line-Count: 0
+URL: http://example.com/MyCPAN/modules/02packages.details.txt
+Written-By: /home/willert/Devel/mist/script/mist using CPAN::PackageDetails0.26
+
+Test2                              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::API                         1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::API::Breakage               1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::API::Context                1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::API::Instance               1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::API::Stack                  1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event                       1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Bail                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Diag                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Encoding             1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Exception            1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Generic              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Info                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Note                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Ok                   1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Plan                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Skip                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Subtest              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::TAP::Version         1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Event::Waiting              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Formatter                   1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Formatter::TAP              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Hub                         1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Hub::Interceptor            1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Hub::Interceptor::Terminator 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Hub::Subtest                1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::IPC                         1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::IPC::Driver                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::IPC::Driver::Files          1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Tools::Tiny                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Util                        1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Util::ExternalMeta          1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Util::HashBase              0.002  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test2::Util::Trace                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Builder                      1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Builder::Formatter           1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Builder::IO::Scalar          2.113  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Builder::Module              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Builder::Tester              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Builder::Tester::Color       1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Builder::TodoDiag            1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::More                         1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Simple                       1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Tester                       1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Tester::Capture              1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Tester::CaptureRunner        1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::Tester::Delegate             1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Test::use::ok                      1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
+Time::Simple                        0.06  L/LG/LGODDARD/Time-Simple-0.06.tar.gz
+ok                                 1.302078  E/EX/EXODIST/Test-Simple-1.302078.tar.gz
